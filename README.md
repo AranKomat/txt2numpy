@@ -26,7 +26,7 @@ Tokenization
 For this, it suffices to call `python3 tokenize.py`. It produces a h5py file containing the aforementioned two types of numpy arrays. If you want to use the default GPT2 BPE, please store `vocab.json` and `gpt2-merges.txt` in the same directory. If you want to try a customized vocabulary, please refer to [huggingface/tokenizers](https://github.com/huggingface/tokenizers) for their instruction. You can then modify my `tokenize.py` accordingly. In particular, you need to modify the dtype accordingly if your custom vocabulary size exceeds the limit of the default dtype. If by any chance it outputs MemoryError, you can decrease the default value for `MAX_TOKEN_LENGTH` and `FREQ`. 
 
 For adaptive input/softmax
-==========
+-----------
 For this, it suffices to call `python3 adaptive.py`. It retokenizes the array of the first type in a way compatible with adaptive input/softmax, while the array containing the document location information is kept intact. It also outputs how this mapping was performed, which can be used for converting the tokens back into the original vocabulary such as GPT2 BPE. 
 
 Caveats
