@@ -19,6 +19,7 @@ Concatenating txt files
 For this, all you need is to bash a command as follows (this is an example for GP19):
 
   `echo ./train/*.txt | xargs awk 'FNR==1{print "<|endoftext|>"}1' > ./train.txt`
+  
 This will produce a txt file that would look as `<|endoftext|>(DOC1)<|endoftext|>(DOC2)<|endoftext|>...`. Contrary to intuition, `<|endoftext|>` notes the beginning of a document rather than the end (this was to follow the convention of GPT2 BPE), so you may want to replace it with something as `<|startoftext|>` if you prefer, though this doesn't matter. If you do so, please replace likewise in the remaining scripts.  
 
 Tokenization
@@ -31,4 +32,4 @@ For this, it suffices to call `python3 adaptive.py`. It retokenizes the array of
 
 Caveats
 ----------
-Though I use PyTorch, I do not use its DataLoader class. So, I'm not sure how h5py file works with DataLoader. If by any chance it does not work well, you may want to convert it into other format. 
+Though I use PyTorch, I do not use its DataLoader class. So, I'm not sure how h5py file works with DataLoader. If by any chance it does not work well and if DataLoader is crucial to your work, you may want to convert it into other format. 
